@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings epkg="com.udea.concesionario.entity" v="5.4.3" rws="_16607806632462" Pws="_16607806632462" cws="_16607806632462" persistenceUnitName="DEFAULT_PU" pp="E" sm="false" xs="false" id="_16607806632461" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity name="Marca" lbl-ref="_16607807024204" uil="Marca" compositePrimaryKeyClass="MarcaPK" abs="false" class="Marca" pclass="Entity_1" v="true" xre="false" m="false" rootElement="_16607806632461" id="_16607807023923">
+        <ts e="true">
+            <a>_16607807024204</a>
+        </ts>
+        <hc e="true">
+            <a>_16607807024204</a>
+        </hc>
+        <eq e="true">
+            <a>_16607807024204</a>
+        </eq>
+        <con am="PUBLIC" e="true"/>
+        <con am="PUBLIC" e="true">
+            <a>_16607807024204</a>
+        </con>
+        <ath>sebas</ath>
+        <removedAttributes>
+            <i>attribute</i>
+        </removedAttributes>
+        <attributes>
+            <one-to-many collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_16607807095846" connected-attribute-id="_166080060218120" v="true" name="vehiculoes" id="_166080060218321"/>
+            <id attribute-type="String" v="true" xvt="" name="marca" pname="id" uil="Marca del vehiculo" ft="false" id="_16607807024204">
+                <xwm/>
+                <xm/>
+                <column name="marca" unique="true" nullable="false" insertable="true" updatable="true" length="255"/>
+                <generated-value/>
+            </id>
+        </attributes>
+        <nq e="true" name="Marca.findAll">
+            <query>Select e from Marca e</query>
+        </nq>
+        <nq e="true" name="Marca.findByMarca">
+            <query>Select m from Marca m where m.Marca=:Marca</query>
+        </nq>
+    </entity>
+    <entity name="vehiculo" lbl-ref="_16607807095847" uil="Vehiculos" pt="PAGINATION" compositePrimaryKeyType="D" compositePrimaryKeyClass="VehiculoPK" abs="false" class="Vehiculo" pclass="Entity_2" v="true" xre="false" m="false" rootElement="_16607806632461" id="_16607807095846">
+        <ts e="true">
+            <a>_16607807095847</a>
+            <a>_166079734366014</a>
+            <a>_166079734428515</a>
+            <a>_166079734492016</a>
+            <a>_166079751937317</a>
+        </ts>
+        <hc e="true">
+            <a>_16607807095847</a>
+        </hc>
+        <eq e="true">
+            <a>_16607807095847</a>
+        </eq>
+        <con am="PUBLIC" e="true">
+            <a>_16607807095847</a>
+            <a>_166079734366014</a>
+            <a>_166079734428515</a>
+            <a>_166079734492016</a>
+            <a>_166079751937317</a>
+        </con>
+        <con am="PUBLIC" e="true"/>
+        <ath>sebas</ath>
+        <removedAttributes>
+            <i>attribute</i>
+        </removedAttributes>
+        <attributes>
+            <basic attribute-type="int" v="true" xvt="" name="modelo" pname="attribute1" uil="Modelo" ft="false" id="_166079734366014">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nn m="El campo modelo es obligatorio"/>
+                </bv>
+                <column name="modelo" unique="false" nullable="false" insertable="true" updatable="true" precision="0"/>
+            </basic>
+            <basic attribute-type="String" v="true" xvt="" name="color" pname="attribute2" uil="Color" ft="true" id="_166079734428515">
+                <xwm/>
+                <xm/>
+                <column name="color" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="kilometraje" pname="attribute3" dv="0" uil="Kilometraje" ft="false" id="_166079734492016">
+                <xwm/>
+                <xm/>
+                <column name="kilometraje" unique="false" nullable="false" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <basic attribute-type="double" v="true" xvt="" name="precio" pname="attribute" id="_166079751937317">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <pz m="Debe ingresar un valor mayor o iual a 0"/>
+                </bv>
+                <column name="precio" unique="false" nullable="true" insertable="true" updatable="true" precision="0" scale="0"/>
+            </basic>
+            <many-to-one primaryKey="true" connected-entity-id="_16607807023923" connected-attribute-id="_166080060218321" v="true" name="marca" id="_166080060218120"/>
+            <many-to-one primaryKey="true" connected-entity-id="_166079728226910" connected-attribute-id="_166080064995524" v="true" name="tipo_vehiculo" id="_166080064995523"/>
+            <id attribute-type="String" v="true" xvt="" name="placa" pname="id" uil="Placa" ft="false" id="_16607807095847">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nn m="El campo placa es obligatorio"/>
+                    <si mi="6" ma="6" m="El campo placa debe incluir 6 caracteres"/>
+                </bv>
+                <column name="placa" unique="true" nullable="false" insertable="true" updatable="true" length="6"/>
+                <generated-value/>
+            </id>
+        </attributes>
+        <nq e="true" name="Vehiculo.findAll">
+            <query>Select e from Vehiculo e</query>
+        </nq>
+        <nq e="true" name="Vehiculo.findByPlaca">
+            <query>Select v from Vehiculo v where v.placa=:placa</query>
+        </nq>
+        <nq e="true" name="Vehiculo.findByModelo">
+            <query>Select v from Vehiculo v where v.modelo=:modelo</query>
+        </nq>
+        <nq e="true" name="Vehiculo.findByColor">
+            <query>Select v from Vehiculo v where v.color=:color</query>
+        </nq>
+        <nq e="true" name="Vehiculo.findByKilometraje">
+            <query>Select v from Vehiculo v where v.kilometraje=:kilometraje</query>
+        </nq>
+        <nq e="true" name="Vehiculo.findByPrecio">
+            <query>Select v from Vehiculo v where v.precio=:precio</query>
+        </nq>
+    </entity>
+    <entity compositePrimaryKeyClass="Tipo_vehiculoPK" abs="false" class="Tipo_vehiculo" pclass="Entity_1" v="true" xre="false" m="false" rootElement="_16607806632461" id="_166079728226910">
+        <ts e="true">
+            <a>_166079728226911</a>
+            <a>_166079757470618</a>
+        </ts>
+        <hc e="true">
+            <a>_166079728226911</a>
+        </hc>
+        <eq e="true">
+            <a>_166079728226911</a>
+        </eq>
+        <con am="PUBLIC" e="true">
+            <a>_166079728226911</a>
+            <a>_166079757470618</a>
+        </con>
+        <con am="PUBLIC" e="true"/>
+        <ath>sebas</ath>
+        <attributes>
+            <basic attribute-type="String" v="true" xvt="" name="tipo_vehiculo" pname="attribute" uil="Tipo de Vehiculo" ft="false" id="_166079757470618">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nn m="El campo tipo_vehiculo es obligatorio"/>
+                </bv>
+                <column name="tipo_vehiculo" unique="true" nullable="false" insertable="true" updatable="true"/>
+            </basic>
+            <one-to-many collection-type="java.util.List" cit="java.util.ArrayList" connected-entity-id="_16607807095846" connected-attribute-id="_166080064995523" v="true" name="vehiculoes" id="_166080064995524"/>
+            <id attribute-type="Long" v="true" xvt="" name="id" ft="false" id="_166079728226911">
+                <xwm/>
+                <xm/>
+                <bv>
+                    <nn m="El campo id es obligatorioa"/>
+                </bv>
+                <column name="id" unique="true" nullable="false" insertable="true" updatable="true"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <nq e="false" name="Tipo_vehiculo.findAll">
+            <query>Select e from Tipo_vehiculo e</query>
+        </nq>
+        <nq e="false" name="Tipo_vehiculo.findByTipo_vehiculo">
+            <query>Select t from Tipo_vehiculo t where t.tipo_vehiculo=:tipo_vehiculo</query>
+        </nq>
+    </entity>
+    <wsl>
+        <ws n="Main" id="_16607806632462">
+            <i ref="_166079728226910" x="174" y="311"/>
+            <i ref="_16607807095846" x="468" y="142"/>
+            <i ref="_16607807023923" x="212" y="142"/>
+        </ws>
+    </wsl>
+</entity-mappings>
